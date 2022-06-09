@@ -1,8 +1,10 @@
+using la_mia_pizzeria_ef.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
+builder.Services.AddDbContext<NuovaPizzeriaContext>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -18,6 +20,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Pizza}/{action=Index}/{id?}");
+    pattern: "{controller=NuovaPizzas}/{action=Index}/{id?}");
 
 app.Run();
